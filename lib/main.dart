@@ -14,7 +14,7 @@ import 'theme/theme.dart';
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  //git fix
   runApp(MyApp());
 }
 
