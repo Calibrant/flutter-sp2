@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "138751746565",
+    "project_id": "e-outrider-295814",
+    "storage_bucket": "e-outrider-295814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138751746565:android:8118bd648d965ca8d6b26c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app_sp2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138751746565-uuc2l3r2775dmscpks51r5e4uv3lbhrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSu23ES36uGxBqT_8jY7419y5-izDZDeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138751746565-uuc2l3r2775dmscpks51r5e4uv3lbhrg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
