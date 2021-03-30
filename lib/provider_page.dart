@@ -131,28 +131,28 @@ class _ProviderPageState extends State<ProviderPage> {
                   label: 'Create',
                   onPressed: () {
                     createData();
-                    Navigator.pushNamed(context, ProviderPage2.id);
+                    _goToProviderPage2();
                   },
                 ),
                 ElevatedButtonWidget(
                   label: 'Read',
                   onPressed: () {
                     readData();
-                    Navigator.pushNamed(context, ProviderPage2.id);
+                    _goToProviderPage2();
                   },
                 ),
                 ElevatedButtonWidget(
                   label: 'Update',
                   onPressed: () {
                     updateData();
-                    Navigator.pushNamed(context, ProviderPage2.id);
+                    _goToProviderPage2();
                   },
                 ),
                 ElevatedButtonWidget(
                   label: 'Delete',
                   onPressed: () {
                     deleteData();
-                    Navigator.pushNamed(context, ProviderPage2.id);
+                    _goToProviderPage2();
                   },
                 ),
               ],
@@ -162,5 +162,9 @@ class _ProviderPageState extends State<ProviderPage> {
       ),
       drawer: MainMenuBar(),
     );
+  }
+
+ Future<void> _goToProviderPage2() async{
+    Navigator.pushNamed(context, ProviderPage2.id);
   }
 }
