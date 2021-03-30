@@ -19,11 +19,8 @@ class ProviderPage extends StatefulWidget {
 
 class _ProviderPageState extends State<ProviderPage> {
   String companyName, companyService, companyDesc, position;
-
   Location location = Location();
   Map<String, double> userLocation;
-
-  //var navigate =()=> MaterialPageRoute(builder: (context) => ProviderPage2());
 
 ///////////////////////////////
 
