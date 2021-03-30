@@ -23,6 +23,8 @@ class _ProviderPageState extends State<ProviderPage> {
   Location location = Location();
   Map<String, double> userLocation;
 
+  //var navigate =()=> MaterialPageRoute(builder: (context) => ProviderPage2());
+
 ///////////////////////////////
 
   getCompanyName(name) {
@@ -132,40 +134,28 @@ class _ProviderPageState extends State<ProviderPage> {
                   label: 'Create',
                   onPressed: () {
                     createData();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProviderPage2()));
+                    Navigator.pushNamed(context, ProviderPage2.id);
                   },
                 ),
                 ElevatedButtonWidget(
                   label: 'Read',
                   onPressed: () {
                     readData();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProviderPage2()));
+                    Navigator.pushNamed(context, ProviderPage2.id);
                   },
                 ),
                 ElevatedButtonWidget(
                   label: 'Update',
                   onPressed: () {
                     updateData();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProviderPage2()));
+                    Navigator.pushNamed(context, ProviderPage2.id);
                   },
                 ),
                 ElevatedButtonWidget(
                   label: 'Delete',
                   onPressed: () {
                     deleteData();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProviderPage2()));
+                    Navigator.pushNamed(context, ProviderPage2.id);
                   },
                 ),
               ],

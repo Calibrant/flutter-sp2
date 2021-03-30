@@ -1,14 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sp2/chat/screens/welcome_screen.dart';
 import 'package:flutter_app_sp2/provider_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'const.dart';
 import 'googlemap_screen.dart';
 
 class AuthSms extends StatefulWidget {
-  /* AuthSms({Key key, this.title}) : super(key: key);
-  final String title; */
   static const String id = 'auth_sms';
 
   @override

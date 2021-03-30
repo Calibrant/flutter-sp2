@@ -9,12 +9,13 @@ import 'chat/screens/registration_screen.dart';
 import 'chat/screens/welcome_screen.dart';
 import 'const.dart';
 import 'googlemap_screen.dart';
+import 'provider_page2.dart';
 import 'theme/theme.dart';
+
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  //git qwerty
   runApp(MyApp());
 }
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       builder: (light, dark) => MaterialApp(
         darkTheme: dark,
         theme: light,
-        initialRoute: AuthSms.id,
+        initialRoute: ProviderPage.id,
         routes: {
           AuthSms.id: (context) => AuthSms(),
           GoogleMapPage.id: (context) => GoogleMapPage(),
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           RegistrationScreen.id: (context) => RegistrationScreen(),
           ChatScreen.id: (context) => ChatScreen(),
           ProviderPage.id: (context) => ProviderPage(),
+          ProviderPage2.id: (context) => ProviderPage2(),
         },
         title: AUTH_SMS_TITLE,
       
