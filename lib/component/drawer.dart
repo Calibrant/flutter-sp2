@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sp2/chat/screens/welcome_screen.dart';
+import 'package:flutter_app_sp2/search.dart';
 import '../auth_sms.dart';
 import '../const.dart';
 import '../googlemap_screen.dart';
@@ -44,6 +45,13 @@ class MainMenuBar extends StatelessWidget {
             title: Text(DRAWER_LIST_TILE_TITLE_ADD),
             onTap: () {
               Navigator.pushNamed(context, ProviderPage.id);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.search),
+            title: Text('Поиск'),
+            onTap: () {
+              Navigator.pushNamed(context, Search.id);
             },
           ),
         ],

@@ -31,8 +31,7 @@ dependencies:
   geolocator: ^6.2.1
   #intl: ^0.17.0
   adaptive_theme: ^1.1.0
-
-
+  get: ^3.13.2
 
 dev_dependencies:
   flutter_test:

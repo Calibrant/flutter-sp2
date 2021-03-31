@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sp2/provider_page.dart';
+import 'package:flutter_app_sp2/search.dart';
 import 'auth_sms.dart';
 import 'chat/screens/chat_screen.dart';
 import 'chat/screens/login_screen.dart';
@@ -11,7 +12,6 @@ import 'const.dart';
 import 'googlemap_screen.dart';
 import 'provider_page2.dart';
 import 'theme/theme.dart';
-
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,9 +39,9 @@ class MyApp extends StatelessWidget {
           ChatScreen.id: (context) => ChatScreen(),
           ProviderPage.id: (context) => ProviderPage(),
           ProviderPage2.id: (context) => ProviderPage2(),
+          Search.id: (context) => Search(),
         },
         title: AUTH_SMS_TITLE,
-      
         home: AuthSms(),
       ),
     );
