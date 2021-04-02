@@ -61,7 +61,7 @@ class _SearchState extends State<Search> {
                 return IconButton(
                     icon: Icon(Icons.search),
                     onPressed: () {
-                      val.queryData(searchController.text, 3).then((value) {
+                      val.queryData(searchController.text).then((value) {
                         snapshotData = value;
                         setState(() {
                           isExcecutee = true;
