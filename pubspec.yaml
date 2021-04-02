@@ -12,6 +12,7 @@ environment:
 
 dependencies:
   cloud_firestore: ^0.16.0+1 #1.0.0
+  
   #flutter_localizations:
     #sdk: flutter
   flutter:
@@ -26,13 +27,13 @@ dependencies:
   firebase_core: ^0.7.0 #1.0.0
   animated_text_kit: ^1.3.0
   modal_progress_hud: ^0.1.3
-  #plugin_platform_interface: ^2.0.0
   location: ^3.0.0
   geolocator: ^6.2.1
   #intl: ^0.17.0
   adaptive_theme: ^1.1.0
-
-
+  get: ^3.13.2
+  geoflutterfire:
+    git: git://github.com/DarshanGowda0/GeoFlutterFire.git
 
 dev_dependencies:
   flutter_test:

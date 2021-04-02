@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'theme/theme.dart';
 
 const kTextTextStyleFontSize = TextStyle(
   fontSize: 16.0,
