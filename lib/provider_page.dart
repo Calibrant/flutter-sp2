@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sp2/const.dart';
 import 'package:flutter_app_sp2/component/padding.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:location/location.dart';
 import 'chat/screens/welcome_screen.dart';
 import 'component/drawer.dart';
@@ -20,7 +21,8 @@ class ProviderPage extends StatefulWidget {
 class _ProviderPageState extends State<ProviderPage> {
   String companyName, companyService, companyDesc, position;
   Location location = Location();
-  Map<String, double> userLocation;
+  Geoflutterfire geo;
+  //Map<String, double> userLocation;
 
 ///////////////////////////////
 
@@ -43,7 +45,7 @@ class _ProviderPageState extends State<ProviderPage> {
 
     var pos = await location.getLocation();
     GeoPoint point = GeoPoint(pos.latitude, pos.longitude);
-
+   //  GeoFirePoint geoFirePoint = geo.point(latitude: pos.latitude, longitude: pos.longitude);
     Map<String, dynamic> companies = {
       COMPANY_NAME: companyName,
       COMPANY_SERVICE: companyService,
@@ -70,8 +72,9 @@ class _ProviderPageState extends State<ProviderPage> {
   updateData() async {
     DocumentReference documentReference =
         FirebaseFirestore.instance.collection(COLLECTION).doc(companyName);
+        var pos = await location.getLocation();
+    // GeoFirePoint geoFirePoint = geo.point(latitude: pos.latitude, longitude: pos.longitude);
 
-    var pos = await location.getLocation();
     GeoPoint point = GeoPoint(pos.latitude, pos.longitude);
 
     Map<String, dynamic> companies = {
@@ -131,7 +134,7 @@ class _ProviderPageState extends State<ProviderPage> {
                   label: 'Create',
                   onPressed: () {
                     createData();
-                    _goToProviderPage2();
+                   // _goToProviderPage2();
                   },
                 ),
                 ElevatedButtonWidget(
@@ -165,6 +168,6 @@ class _ProviderPageState extends State<ProviderPage> {
   }
 
  Future<void> _goToProviderPage2() async{
-    Navigator.pushNamed(context, ProviderPage2.id);
+    Navigator.pushNamed(context, ProviderPageDetails.id);
   }
 }

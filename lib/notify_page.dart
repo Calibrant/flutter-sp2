@@ -56,7 +56,7 @@ class _HomePageState extends State<NotifyPage> {
 
     // For handling the received notifications
 
-    _messaging.configure(
+   /*  _messaging.configure(
       onMessage: (message) async {
         print('onMessage received: $message');
 
@@ -97,7 +97,7 @@ class _HomePageState extends State<NotifyPage> {
           _totalNotifications++;
         });
       },
-    );
+    ); */
 
     // Used to get the current FCM token
     _messaging.getToken().then((token) {

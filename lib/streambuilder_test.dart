@@ -1,27 +1,26 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sp2/const.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:rxdart/rxdart.dart';
 
-class StreamTestWidget extends StatefulWidget {
+class StreamPageWidget extends StatefulWidget {
   @override
-  _StreamTestWidgetState createState() => _StreamTestWidgetState();
+  _StreamPageWidgetState createState() => _StreamPageWidgetState();
 }
 
-class _StreamTestWidgetState extends State<StreamTestWidget> {
+class _StreamPageWidgetState extends State<StreamPageWidget> {
   Stream<List<DocumentSnapshot>> stream;
   final _firestore = FirebaseFirestore.instance;
   final geo = Geoflutterfire();
-
-  // ignore: close_sinks
-  var radius = BehaviorSubject<double>.seeded(1.0);
+  var radius =  BehaviorSubject<double>.seeded(1.0);
 
   @override
   void initState() {
     super.initState();
-    final center = geo.point(latitude: 12.960632, longitude: 77.641603);
+    final center = geo.point(latitude: 41.312710528718796, longitude: 69.27733964256669);
     stream = radius.switchMap((rad) {
-      var collectionReference = _firestore.collection('locations');
+      var collectionReference = _firestore.collection(COLLECTION);
       return geo.collection(collectionRef: collectionReference).within(
           center: center, radius: rad, field: 'position', strictMode: true);
     });
@@ -41,7 +40,7 @@ class _StreamTestWidgetState extends State<StreamTestWidget> {
                   snapshots.hasData) {
                 print('data ${snapshots.data}');
                 return Container(
-                  height: MediaQuery.of(context).size.height * 2 / 3,
+                  height: MediaQuery.of(context).size.height * 1/1.45,
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       final doc = snapshots.data[index];
@@ -49,9 +48,10 @@ class _StreamTestWidgetState extends State<StreamTestWidget> {
                       print(
                           'doc with id ${doc.id} distance ${data['distance']}');
                       GeoPoint point = data['position']['geopoint'];
+                    
                       return ListTile(
                         title: Text(
-                          doc.id,
+                         doc.data()[COMPANY_NAME],
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text('${point.latitude}, ${point.longitude}'),
@@ -71,8 +71,8 @@ class _StreamTestWidgetState extends State<StreamTestWidget> {
             padding: const EdgeInsets.only(top: 8.0),
             child: Slider(
               min: 1,
-              max: 200,
-              divisions: 4,
+              max: 100,
+              divisions: 5,
               value: _value,
               label: _label,
               activeColor: Colors.blue,
@@ -85,7 +85,7 @@ class _StreamTestWidgetState extends State<StreamTestWidget> {
     );
   }
 
-  double _value = 20.0;
+  double _value = 1.0;
   String _label = '';
 
   changed(value) {

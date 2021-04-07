@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'const.dart';
 
-class ProviderPage2 extends StatelessWidget {
-  const ProviderPage2({Key key}) : super(key: key);
+class ProviderPageDetails extends StatelessWidget {
+  const ProviderPageDetails({Key key}) : super(key: key);
 static const String id = 'provider_page2';
   @override
   Widget build(BuildContext context) {

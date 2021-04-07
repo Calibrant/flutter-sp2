@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flutter_app_sp2">
    <application
+        android:name="io.flutter.app.FlutterApplication"
         android:label="flutter_app_sp2"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
@@ -41,5 +42,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- A custom Android Notification Channel to deliver FCM notifications on a non-default channel -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="high_importance_channel" />
     </application>
 </manifest>

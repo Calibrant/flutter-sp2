@@ -45,6 +45,7 @@ class _SearchState extends State<Search> {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.clear),
         onPressed: () {
           setState(() {
@@ -54,6 +55,7 @@ class _SearchState extends State<Search> {
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
+        
         actions: [
           GetBuilder<DataController>(
               init: DataController(),
@@ -68,17 +70,33 @@ class _SearchState extends State<Search> {
                         });
                       });
                     });
-              })
+              }),
         ],
-        title: TextField(
-          style: TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            hintText: 'Search Services',
-            hintStyle: TextStyle(color: Colors.white),
+        title: Container(
+          width: 280,
+          height: 40,
+          child: TextField(
+            style: TextStyle(color: Colors.black, fontSize: 20.0),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding:
+                  const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+              focusedBorder: OutlineInputBorder(
+                borderSide: new BorderSide(color: Colors.white),
+                borderRadius: new BorderRadius.circular(10.0),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide.none,
+              ),
+              hintText: 'Search Services',
+              hintStyle: TextStyle(color: Colors.black26),
+            ),
+            controller: searchController,
           ),
-          controller: searchController,
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: isExcecutee
           ? searchData()
@@ -86,7 +104,7 @@ class _SearchState extends State<Search> {
               child: Center(
                 child: Text(
                   'Search any services',
-                  style: TextStyle(color: Colors.white, fontSize: 30.0),
+                  style: TextStyle(color: Colors.black38, fontSize: 30.0),
                 ),
               ),
             ),
