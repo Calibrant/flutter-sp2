@@ -10,10 +10,10 @@ class DataController extends GetxController {
     return snapshot.docs;
   }
 
-  Future queryData(String queryString) async {
+  Future queryData(String queryString ) async {
     return FirebaseFirestore.instance
         .collection(COLLECTION)
-        .limit(5)
+       .limit(5)
         .where(COMPANY_SERVICE, isGreaterThanOrEqualTo: queryString)
         .get();
   }

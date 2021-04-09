@@ -30,7 +30,6 @@ class _AuthSmsState extends State<AuthSms> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
         title: Center(child: Text(AUTH_SMS_APPBAR_TITLE)),
       ),
       key: _scaffoldKey,

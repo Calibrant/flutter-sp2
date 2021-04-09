@@ -134,7 +134,7 @@ class _ProviderPageState extends State<ProviderPage> {
                   label: 'Create',
                   onPressed: () {
                     createData();
-                   // _goToProviderPage2();
+                    _goToProviderPage2();
                   },
                 ),
                 ElevatedButtonWidget(

@@ -9,6 +9,7 @@ final kDarkTheme = ThemeData.dark().copyWith(
 
 final kLightTheme = ThemeData.light().copyWith(
   primaryColor: Colors.lightBlue[900],
+  //scaffoldBackgroundColor: Colors.pink[200],
   appBarTheme: AppBarTheme(
     color: Colors.blue,
   ),

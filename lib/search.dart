@@ -53,9 +53,9 @@ class _SearchState extends State<Search> {
           });
         },
       ),
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
-        
+        backgroundColor: Theme.of(context).primaryColor,
         actions: [
           GetBuilder<DataController>(
               init: DataController(),
@@ -96,7 +96,6 @@ class _SearchState extends State<Search> {
             controller: searchController,
           ),
         ),
-        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: isExcecutee
           ? searchData()

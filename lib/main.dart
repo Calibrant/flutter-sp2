@@ -48,7 +48,6 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
@@ -62,6 +61,23 @@ Future<void> main() async {
     badge: true,
     sound: true,
   );
+  runApp(MyApp());
+}
+
+int _messageCount = 0;
+String constructFCMPayload(String token) {
+  _messageCount++;
+  return jsonEncode({
+    'token': token,
+    'data': {
+      'via': 'FlutterFire Cloud Messaging!!!',
+      'count': _messageCount.toString(),
+    },
+    'notification': {
+      'title': 'Hello FlutterFire!',
+      'body': 'This notification (#$_messageCount) was created via FCM!',
+    },
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -74,7 +90,7 @@ class MyApp extends StatelessWidget {
       builder: (light, dark) => MaterialApp(
         darkTheme: dark,
         theme: light,
-        initialRoute: AuthSms.id,
+        initialRoute: Application.id,
         routes: {
           AuthSms.id: (context) => AuthSms(),
           GoogleMapPage.id: (context) => GoogleMapPage(),
@@ -96,20 +112,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-int _messageCount = 0;
+
 
 /// The API endpoint here accepts a raw FCM payload for demonstration purposes.
-String constructFCMPayload(String token) {
-  _messageCount++;
-  return jsonEncode({
-    'token': token,
-    'data': {
-      'via': 'FlutterFire Cloud Messaging!!!',
-      'count': _messageCount.toString(),
-    },
-    'notification': {
-      'title': 'Hello FlutterFire!',
-      'body': 'This notification (#$_messageCount) was created via FCM!',
-    },
-  });
-}
+

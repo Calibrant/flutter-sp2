@@ -37,6 +37,7 @@ class MessageView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
        // title: Text(notification.title),
         title: Text(message.messageId),
       ),

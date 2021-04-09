@@ -16,6 +16,7 @@ class _Permissions extends State<Permissions> {
   Future<void> requestPermissions() async {
     setState(() {
       _fetching = true;
+
     });
 
     NotificationSettings settings =
@@ -23,6 +24,7 @@ class _Permissions extends State<Permissions> {
       announcement: true,
       carPlay: true,
       criticalAlert: true,
+      sound: true,
     );
 
     setState(() {

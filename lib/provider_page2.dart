@@ -22,7 +22,6 @@ class Service extends StatelessWidget {
   @override
   build(BuildContext context) {
     return Container(
-      // child: Center(child: Text('Text example')),
       child: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection(COLLECTION)
