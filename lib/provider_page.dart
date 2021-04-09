@@ -168,6 +168,6 @@ class _ProviderPageState extends State<ProviderPage> {
   }
 
  Future<void> _goToProviderPage2() async{
-    Navigator.pushNamed(context, ProviderPageDetails.id);
+    Navigator.pushNamed(context, ProviderDetailsPage.id);
   }
 }

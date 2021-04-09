@@ -99,7 +99,7 @@ class MyApp extends StatelessWidget {
           RegistrationScreen.id: (context) => RegistrationScreen(),
           ChatScreen.id: (context) => ChatScreen(),
           ProviderPage.id: (context) => ProviderPage(),
-          ProviderPageDetails.id: (context) => ProviderPageDetails(),
+          ProviderDetailsPage.id: (context) => ProviderDetailsPage(),
           Search.id: (context) => Search(),
           //MessagingExampleApp.id: (context) => MessagingExampleApp(),
           Application.id: (context) => Application(),

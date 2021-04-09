@@ -176,7 +176,7 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
-          Navigator.pushNamed(context, ProviderPageDetails.id);
+          Navigator.pushNamed(context, ProviderDetailsPage.id);
         },
         child: Icon(Icons.send),
       ),
