@@ -16,7 +16,27 @@ import 'provider_page.dart';
 import 'streambuilder_test.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:rxdart/rxdart.dart';
-import 'dart:math';
+
+List list = [
+  'Company 10',
+  'Company 11',
+  'Company 12',
+  'Company 13',
+  'Company 14',
+  'Company 15',
+  'Company 16',
+  'Company 7',
+  'Company 8',
+  'Company 9',
+  'Uuuuuuuu',
+  'billur',
+  'cccc',
+  'mmkmk',
+  'new',
+  'new2',
+];
+/*   Random random=Random();
+  var element = list[random.nextInt(list.length)]; */
 
 class GoogleMapPage extends StatefulWidget {
   static const String id = 'google_map';
@@ -38,7 +58,6 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   LocationData _currentPosition;
   Location location = Location();
   LatLng _initialcameraposition = LatLng(0.5937, 0.9629);
-  LatLng _center = LatLng(41.312710528718796, 69.27733964256669);
 
   _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -98,6 +117,7 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
             specify[POSITION].latitude,
             specify[POSITION].longitude) /
         1000;
+
     final Marker marker = Marker(
       markerId: markerId,
       position: LatLng(specify[POSITION].latitude, specify[POSITION].longitude),
@@ -124,7 +144,7 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   @override
   void initState() {
     getLoc();
-   // getMarkerData();
+    //getMarkerData();
     // foundMarkers();
     super.initState();
 
@@ -144,17 +164,16 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   foundMarkers() {
     Random rand = Random();
     if (snapshotData.docs.isNotEmpty) {
-      for (int i = 0; i < snapshotData.docs.length; ++i) {
-        var randMarker2 =
-            snapshotData.docs[rand.nextInt(snapshotData.docs.length)];
-        initMarker(randMarker2.data(), randMarker2.id);
+      for (var i = 0; i < snapshotData.docs.length; ++i) {
+        /* var randMarker =
+            snapshotData.docs[rand.nextInt(snapshotData.docs.length)]; */
+        initMarker(snapshotData.docs[i].data(), snapshotData.docs[i].id);
       }
     }
   }
 
   @override
- Widget build(BuildContext context) {
-    LocationData _currentPosition;
+  Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -184,46 +203,53 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                Container(
-                  width: 280,
-                  height: 40,
-                  child: TextField(
-                    style: TextStyle(color: Colors.black, fontSize: 20.0),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: const EdgeInsets.only(
-                          left: 14.0, bottom: 8.0, top: 8.0),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.white),
-                        borderRadius: new BorderRadius.circular(10.0),
+            Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children:[
+                Row(
+                children: [
+                  Container(
+                    width: 280,
+                    height: 40,
+                    child: TextField(
+                      style: TextStyle(color: Colors.black, fontSize: 20.0),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.only(
+                            left: 14.0, bottom: 8.0, top: 8.0),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: new BorderSide(color: Colors.white),
+                          borderRadius: new BorderRadius.circular(10.0),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: 'Search Markers',
+                        hintStyle: TextStyle(color: Colors.black26),
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      hintText: 'Search Markers',
-                      hintStyle: TextStyle(color: Colors.black26),
+                      // controller: ,
                     ),
-                    // controller: ,
                   ),
-                ),
-                GetBuilder<DataController>(
-                    init: DataController(),
-                    builder: (val) {
-                      return IconButton(
-                          icon: Icon(Icons.search),
-                          onPressed: () {
-                            val.queryData(searchController.text).then((value) {
-                              snapshotData = value;
-                              setState(() {
-                                foundMarkers();
+                  GetBuilder<DataController>(
+                      init: DataController(),
+                      builder: (val) {
+                        return IconButton(
+                            icon: Icon(Icons.search),
+                            onPressed: () {
+                              val.queryData(searchController.text).then((value) {
+                                /* if (searchController.text.length > 1) { */
+                                  snapshotData = value;
+                                  setState(() {
+                                    foundMarkers();
+                                  });
+                               // }
                               });
                             });
-                          });
-                    })
+                      })
+                ],
+              ),
               ],
             ),
             Center(
@@ -234,7 +260,6 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
                   width: mediaQuery.size.width - 30,
                   height: mediaQuery.size.height * (1 / 1.410),
                   child: GoogleMap(
-                    
                     /////////////////////GOOGLE MAP////////////////////
                     onMapCreated: _onMapCreated,
                     initialCameraPosition: const CameraPosition(

@@ -1,7 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -15,16 +14,10 @@ import 'chat/screens/registration_screen.dart';
 import 'chat/screens/welcome_screen.dart';
 import 'const.dart';
 import 'firebase_messaging/message.dart';
-import 'firebase_messaging/message_list.dart';
-import 'firebase_messaging/messaging_example_app.dart';
-import 'firebase_messaging/meta_card.dart';
-import 'firebase_messaging/permissions.dart';
-import 'firebase_messaging/token_monitor.dart';
 import 'googlemap_screen.dart';
 import 'provider_page2.dart';
 import 'theme/theme.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:http/http.dart' as http;
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
@@ -101,7 +94,6 @@ class MyApp extends StatelessWidget {
           ProviderPage.id: (context) => ProviderPage(),
           ProviderDetailsPage.id: (context) => ProviderDetailsPage(),
           Search.id: (context) => Search(),
-          //MessagingExampleApp.id: (context) => MessagingExampleApp(),
           Application.id: (context) => Application(),
           MessageView.id: (context) => MessageView(),
         },
@@ -112,7 +104,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-/// The API endpoint here accepts a raw FCM payload for demonstration purposes.
 

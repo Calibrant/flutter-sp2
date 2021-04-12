@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sp2/const.dart';
@@ -19,10 +21,9 @@ class ProviderPage extends StatefulWidget {
 }
 
 class _ProviderPageState extends State<ProviderPage> {
-  String companyName, companyService, companyDesc, position;
+  String companyName, companyService, companyDesc, position, random;
   Location location = Location();
   Geoflutterfire geo;
-  //Map<String, double> userLocation;
 
 ///////////////////////////////
 
@@ -45,7 +46,7 @@ class _ProviderPageState extends State<ProviderPage> {
 
     var pos = await location.getLocation();
     GeoPoint point = GeoPoint(pos.latitude, pos.longitude);
-   //  GeoFirePoint geoFirePoint = geo.point(latitude: pos.latitude, longitude: pos.longitude);
+    //  GeoFirePoint geoFirePoint = geo.point(latitude: pos.latitude, longitude: pos.longitude);
     Map<String, dynamic> companies = {
       COMPANY_NAME: companyName,
       COMPANY_SERVICE: companyService,
@@ -72,7 +73,7 @@ class _ProviderPageState extends State<ProviderPage> {
   updateData() async {
     DocumentReference documentReference =
         FirebaseFirestore.instance.collection(COLLECTION).doc(companyName);
-        var pos = await location.getLocation();
+    var pos = await location.getLocation();
     // GeoFirePoint geoFirePoint = geo.point(latitude: pos.latitude, longitude: pos.longitude);
 
     GeoPoint point = GeoPoint(pos.latitude, pos.longitude);
@@ -167,7 +168,7 @@ class _ProviderPageState extends State<ProviderPage> {
     );
   }
 
- Future<void> _goToProviderPage2() async{
+  Future<void> _goToProviderPage2() async {
     Navigator.pushNamed(context, ProviderDetailsPage.id);
   }
 }

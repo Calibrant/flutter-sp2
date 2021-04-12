@@ -45,7 +45,7 @@ class MessageView extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(children: [
-          row('Triggered application open', args.openedApplication.toString()),
+          /* row('Triggered application open', args.openedApplication.toString()),
           row('Message ID', message.messageId),
           row('Sender ID', message.senderId),
           row('Category', message.category),
@@ -56,7 +56,7 @@ class MessageView extends StatelessWidget {
           row('Message ID', message.messageId),
           row('Sent Time', message.sentTime?.toString()),
           row('Thread ID', message.threadId),
-          row('Time to Live (TTL)', message.ttl?.toString()),
+          row('Time to Live (TTL)', message.ttl?.toString()), */
           if (notification != null) ...[
             Padding(
               padding: const EdgeInsets.only(top: 16),
@@ -67,13 +67,13 @@ class MessageView extends StatelessWidget {
                 ),
                 row(
                   'Title',
-                  notification.title,
+                  notification.title, 
                 ),
                 row(
                   'Body',
                   notification.body,
                 ),
-                if (notification.android != null) ...[
+                /* if (notification.android != null) ...[
                   const Text(
                     'Android Properties',
                     style: TextStyle(fontSize: 18),
@@ -140,7 +140,7 @@ class MessageView extends StatelessWidget {
                     'Sound',
                     notification.apple.sound?.name,
                   ),
-                ]
+                ] */
               ]),
             )
           ]
